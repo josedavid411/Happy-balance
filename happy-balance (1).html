@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Happy Balance</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2E7D32;--m:#81C784;--o:#F28C28;--y:#FFC93C;--c:#FFFBF3;--r:#C62828;--t:#263238;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;font-family:Nunito,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#E3F1E4;color:var(--t)}
+body{display:flex;align-items:center;justify-content:center}
+.phone{width:390px;height:800px;max-height:100vh;border:10px solid #1c2a2e;border-radius:46px;overflow:hidden;background:var(--c);display:flex;flex-direction:column;position:relative;box-shadow:0 20px 50px #0003}
+@media(max-width:500px){html,body{background:var(--c)}.phone{width:100%;height:100dvh;max-height:none;border:0;border-radius:0;box-shadow:none}}
+.scr{flex:1;overflow-y:auto;padding:calc(18px + env(safe-area-inset-top,0px)) 18px calc(28px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px;font-size:16px;animation:in .25s}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.3)}}
+.c{align-items:center;text-align:center}
+h1{font-size:30px;font-weight:900;text-align:center}
+h2{font-size:26px;font-weight:900;text-align:center}
+h2:before{content:"✦ ";color:var(--y)}h2:after{content:" ✦";color:var(--y)}
+button{font:inherit;cursor:pointer;border:0;min-height:48px;border-radius:14px;font-weight:800;font-size:17px;color:var(--t);background:#fff}
+.bt{background:var(--g);color:#fff;width:100%;box-shadow:0 4px 0 #1b5e20}
+.bt:active{transform:translateY(3px);box-shadow:none}.bt:disabled{background:#E3EAE3;color:#37474F;box-shadow:none;border:2px dashed #7a8f7a}
+.bo{background:var(--o);color:#3E2000;width:100%;box-shadow:0 4px 0 #b8650f}
+.bw{background:#fff;border:2px solid #d9e6d9;width:100%}
+input,select{width:100%;min-height:50px;border:2px solid #8aa48b;border-radius:14px;padding:0 14px;font-size:16px;background:#fff;color:var(--t)}input::placeholder{color:#4a5a5f;opacity:1}
+.lk{background:none;color:var(--g);text-decoration:underline;min-height:44px}
+.logo{font-size:46px;line-height:.95;font-weight:900;color:var(--g)}.logo b{color:var(--o)}
+.mas{animation:bob 2.4s infinite;display:flex;justify-content:center}.mas svg{width:100%;height:100%}
+.em{line-height:1}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.card{background:#fff;border:2px solid #e3eee3;border-radius:18px;padding:10px;text-align:center;font-weight:800;font-size:16px}
+.card.sel{border-color:var(--g);background:#E8F5E9;box-shadow:0 0 0 2px var(--g)}
+.card .em{font-size:44px;display:block;margin-bottom:4px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pill{background:#fff;border:2px solid #d9e6d9;border-radius:99px;min-height:44px;padding:0 6px;font-size:16px}
+.pill.on{background:var(--g);color:#fff;border-color:var(--g)}
+.st{border-radius:16px;padding:10px 4px;text-align:center;font-weight:800;font-size:16px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.st small{font-size:14px;font-weight:800}
+.alert{background:#FFF3CD;border:2px solid var(--y);border-radius:16px;padding:10px;display:flex;gap:8px;align-items:center;font-weight:700;font-size:16px}
+.alert button{background:var(--o);color:#3E2000;min-height:44px;padding:0 10px;font-size:15px;flex:none}
+.stars{font-size:34px;text-align:center;letter-spacing:4px}.stars .off{filter:grayscale(1);opacity:.3}
+.tip{background:linear-gradient(#FFE082,var(--y));border-radius:20px;padding:16px;display:flex;gap:10px;align-items:center}
+.tip b{font-size:21px;display:block}
+nav{display:flex;align-items:flex-end;justify-content:space-around;background:#fff;border-top:2px solid #e3eee3;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+nav button{background:none;box-shadow:none;flex:1;display:flex;flex-direction:column;align-items:center;gap:0;font-size:13px;font-weight:800;min-height:52px;color:#455a60;border-radius:10px}
+nav button i{font-style:normal;font-size:24px}
+nav button.on{color:var(--g)}
+nav .ctr{margin-top:-26px;color:#b8650f}
+nav .ctr i{background:var(--o);color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:34px;border:4px solid #fff;box-shadow:0 4px 10px #f28c2866}
+.garden{position:relative;background:linear-gradient(#9fd6ff 0,#dff2ff 46%,#8d6e4a 46%,#6d4c2f 100%);border-radius:22px;padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;overflow:hidden;flex:none}.sky{display:flex;justify-content:space-between;align-items:flex-end;min-height:120px}.fence{height:22px;background:repeating-linear-gradient(90deg,#b98550 0 14px,transparent 14px 22px);border-top:5px solid #b98550;margin:0 -12px}
+.plots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.plot{background:#4f3520;border-radius:12px;height:48px;display:grid;place-items:center;font-size:30px}
+.bubble{background:#FFF3CD;border-radius:16px;padding:12px;font-weight:800;text-align:center}
+.badge{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:10px;font-weight:700;font-size:16px}
+.badge.lock{background:#EEF2EE;color:#4a5a5f}
+.burst span{position:absolute;animation:pop .6s both}
+.toast{position:absolute;left:16px;right:16px;bottom:96px;background:var(--t);color:#fff;padding:12px;border-radius:14px;font-weight:700;text-align:center;z-index:9}
+.hoy{align-self:flex-end;background:#fff;border:2px solid #d9e6d9;border-radius:10px;padding:2px 8px;font-size:14px;font-weight:800}
+</style></head><body>
+<div class="phone" id="ph"><div id="app" style="display:contents"></div></div>
+<script>
+const PETS={bali:['Bali','🥑','Vegetales'],zani:['Zani','🥕','Vegetales'],brocho:['Brocho','🥦','Vegetales'],pipo:['Pipo','🐰','Animales'],tuco:['Tuco','🦜','Animales'],nino:['Nino','🐻','Animales']};
+const MEN={d:[['🍳','Huevito con tostada'],['🥣','Avena con fruta'],['🍎','Frutas frescas']],a:[['🍗','Pollo con arroz'],['🥗','Ensalada colorida'],['🍎','Frutas frescas']],c:[['🍲','Sopa de verduras'],['🫓','Arepa con queso'],['🍎','Frutas frescas']]};
+const REC=[['🍗','Pollo con arroz'],['🍎','Frutas'],['🍲','Sopa de verduras']],FAV=[['🍳','Huevito con tostada'],['🍎','Frutas frescas'],['🫓','Arepa con queso']];
+const MN={d:'Desayuno',a:'Almuerzo',c:'Cena'},MI={d:'☀️',a:'🍴',c:'🌙'},BG={d:'#FFF3C4',a:'#FFE3C4',c:'#E6DDFB'};
+const TIPS=['Incluye una fruta de diferentes colores en la merienda.','Prueba un vegetal nuevo cada semana, sin presionar.','Toma agua entre comidas para sentirte con energía.'];
+const hr=new Date().getHours(),now=hr<11?'d':hr<16?'a':'c';
+const S={s:'welcome',name:'',kid:'',age:'',pet:'bali',tmp:'bali',meals:{d:'done',a:'pend',c:'later'},stars:1,mt:'d',lm:'a',tab:'r',dish:null,por:'Normal',tip:0,info:'',foods:['Huevito con tostada'],back:'home'};
+const $=id=>document.getElementById(id);
+const kid=()=>S.kid||'Mateo';
+function av(m,sz){const cele=m=='cele',eyes=cele?'<path d="M42 66q5-8 10 0M68 66q5-8 10 0" stroke="#222" stroke-width="3.5" fill="none" stroke-linecap="round"/>':'<ellipse cx="47" cy="67" rx="6" ry="7.5" fill="#222"/><ellipse cx="73" cy="67" rx="6" ry="7.5" fill="#222"/><circle cx="49" cy="64" r="2.2" fill="#fff"/><circle cx="75" cy="64" r="2.2" fill="#fff"/>';
+const arms=cele?'<path d="M16 88Q4 70 10 50M104 88Q116 70 110 50" stroke="#2E7D32" stroke-width="8" fill="none" stroke-linecap="round"/>':'<path d="M16 96Q6 90 8 76M104 96Q114 90 112 76" stroke="#2E7D32" stroke-width="8" fill="none" stroke-linecap="round"/>';
+return `<svg viewBox="0 0 120 140" style="width:${sz}px;height:${sz*1.1}px">${arms}<ellipse cx="60" cy="80" rx="46" ry="56" fill="#2E7D32"/><ellipse cx="60" cy="84" rx="38" ry="48" fill="#E3EE9B"/><circle cx="60" cy="102" r="19" fill="#7A4A2B"/><circle cx="54" cy="96" r="5" fill="#A06E48"/>${eyes}<ellipse cx="36" cy="78" rx="6" ry="4" fill="#F7A9A0"/><ellipse cx="84" cy="78" rx="6" ry="4" fill="#F7A9A0"/><path d="M52 76q8 9 16 0" stroke="#222" stroke-width="3" fill="${cele?'#fff':'none'}" stroke-linecap="round"/></svg>`}
+function mas(k,sz,m){return `<div class="mas">${k=='bali'?av(m,sz):`<span class="em" style="font-size:${sz*.8}px">${PETS[k][1]}</span>`}</div>`}
+function nav(a){const t=[['home','🏠','Inicio'],['menus','🍽️','Menús'],['log','＋','Registrar'],['tips','💡','Consejos'],['garden','🌱','Mi huerta']];
+return `<nav>${t.map(([k,i,l])=>`<button class="${k=='log'?'ctr':''} ${a==k?'on':''}" onclick="${k=='log'?`openLog(now2())`:`go('${k}')`}"><i>${i}</i>${l}</button>`).join('')}</nav>`}
+const now2=()=>S.meals[now]=='done'?(['d','a','c'].find(k=>S.meals[k]!='done')||now):now;
+function go(s){S.s=s;S.info='';r()}
+function openLog(m,dish){S.lm=m;S.tab='r';S.dish=dish||null;S.por='Normal';go('log')}
+function save(){S.meals[S.lm]='done';S.stars++;if(!S.foods.includes(S.dish))S.foods.push(S.dish);go('ok')}
+function r(){const k=S.pet,P=PETS[k],s=S.s;let h='',n='';
+if(s=='welcome')h=`<div class="scr c" style="justify-content:space-between;background:radial-gradient(#E8F5E9,var(--c))"><div class="logo" style="margin-top:20px">Happy<br><b>Balance</b></div><h2 style="font-size:22px">¡Comer bien puede ser divertido!</h2>${mas('bali',190)}<button class="bt" onclick="go('reg')">Comenzar</button></div>`;
+else if(s=='reg')h=`<div class="scr"><h2>¡Vamos a conocernos!</h2><input placeholder="👤 Tu nombre" value="${S.name}" oninput="S.name=this.value"><input placeholder="🧒 Nombre del niño o niña" value="${S.kid}" oninput="S.kid=this.value"><input placeholder="🎂 Edad" inputmode="numeric" value="${S.age}" oninput="S.age=this.value"><input type="email" placeholder="✉️ Correo electrónico"><button class="bt" onclick="go('pick')">Crear cuenta</button><button class="bw" onclick="go('pick')"><b style="color:#4285F4">G</b> Continuar con Google</button><button class="lk" onclick="go('pick')">Ya tengo cuenta</button><p style="font-size:15px;text-align:center;color:#4a5a5f;margin-top:auto">Las alergias o restricciones puedes añadirlas después.</p></div>`;
+else if(s=='pick')h=`<div class="scr"><h2>¡Elige tu compañero!</h2>${['Vegetales','Animales'].map(g=>`<b style="text-align:center">${g}</b><div class="g3">${Object.entries(PETS).filter(([,p])=>p[2]==g).map(([id,p])=>`<button class="card ${S.tmp==id?'sel':''}" onclick="S.tmp='${id}';r()"><span class="em">${p[1]}</span>${p[0]}${S.tmp==id?' ✓':''}</button>`).join('')}</div>`).join('')}<button class="bt" style="margin-top:auto" onclick="S.pet=S.tmp;go('home')">Elegir</button></div>`;
+else if(s=='home'){const al=['d','a','c'].find(x=>S.meals[x]=='pend'),st={done:['✅','Completado'],pend:['🟠','Pendiente'],later:['🕘','Más tarde']};
+h=`<div class="scr"><span class="hoy">📅 Hoy</span><div class="row" style="align-items:center;flex:none"><h1 style="text-align:left;font-size:28px">¡Hola, ${kid()}!</h1>${mas(k,90)}</div><div class="row">${['d','a','c'].map(x=>`<div class="st" style="background:${BG[x]}"><span style="font-size:28px">${MI[x]}</span>${MN[x]}<small>${st[S.meals[x]][0]} ${st[S.meals[x]][1]}</small></div>`).join('')}</div>${al?`<div class="alert">🔔<span style="flex:1">Tu ${MN[al].toLowerCase()} está cerca</span><button onclick="openLog('${al}')">Registrar ahora</button></div>`:`<div class="alert">🎉<span>¡Todas las comidas registradas!</span></div>`}<button class="bo" onclick="openLog(now2())">＋ Registrar comida</button><div class="stars">${[0,1,2].map(i=>`<span class="${i<S.stars?'':'off'}">⭐</span>`).join('')}</div><p style="text-align:center;font-weight:800">${S.stars} ${S.stars==1?'estrella':'estrellas'}</p></div>`;n='home'}
+else if(s=='menus')h=`<div class="scr"><h2>Menús</h2><div class="row">${['d','a','c'].map(x=>`<button class="pill ${S.mt==x?'on':''}" onclick="S.mt='${x}';r()">${MN[x]}</button>`).join('')}</div><div class="g3">${MEN[S.mt].map(([e,t])=>`<button class="card" onclick="openLog('${S.mt}','${t}')"><span class="em">${e}</span>${t}</button>`).join('')}</div><p style="text-align:center;color:#4a5a5f;font-size:16px">Toca un plato para registrarlo</p><div style="margin-top:auto;display:flex;align-items:center;gap:10px;background:#E8F5E9;border-radius:18px;padding:12px">${mas(k,70)}<b>¿Qué se te antoja hoy? Elige un plato y suma una estrella.</b></div></div>`,n='menus';
+else if(s=='log'){const L=S.tab=='r'?REC:FAV;h=`<div class="scr"><h2>Registrar comida</h2><select onchange="S.lm=this.value;r()" style="background:#C8E6C9;font-weight:800;text-align:center">${['d','a','c'].map(x=>`<option value="${x}" ${S.lm==x?'selected':''}>${MN[x]}</option>`).join('')}</select><div class="row"><button class="pill ${S.tab=='r'?'on':''}" onclick="S.tab='r';r()">Recientes</button><button class="pill ${S.tab=='f'?'on':''}" onclick="S.tab='f';r()">Favoritos</button></div><div class="g3">${L.map(([e,t])=>`<button class="card ${S.dish==t?'sel':''}" onclick="S.dish='${t}';r()"><span class="em">${e}</span>${t}</button>`).join('')}</div><p style="text-align:center;font-size:15px;font-weight:700">Porción (opcional)</p><div class="row">${['Poco','Normal','Mucho'].map(x=>`<button class="pill ${S.por==x?'on':''}" onclick="S.por='${x}';r()">${x}</button>`).join('')}</div><button class="bt" style="margin-top:auto" ${S.dish?'':'disabled'} onclick="save()">Guardar</button></div>`;n='log'}
+else if(s=='ok')h=`<div class="scr c" style="justify-content:space-between;position:relative;background:radial-gradient(#FFF3C4,var(--c))"><div class="burst">${[['8%','6%'],['80%','4%'],['4%','40%'],['88%','36%'],['20%','22%'],['70%','24%']].map(([l,t],i)=>`<span style="left:${l};top:${t};font-size:34px;animation-delay:${i*.1}s">⭐</span>`).join('')}</div><div style="margin-top:40px">${mas(k,200,'cele')}</div><div style="width:100%"><div style="background:var(--g);color:#fff;border-radius:10px;padding:12px;font-size:26px;font-weight:900;margin:10px 0">¡Muy bien, ${kid()}!</div><p style="font-weight:800;font-size:19px">¡Tu comida quedó registrada!</p><p style="font-size:30px;margin-top:6px">⭐ +1</p></div><button class="bt" onclick="go('home')">Volver al inicio</button></div>`;
+else if(s=='tips'){const tx={a:'Toma agua entre comidas: ayuda a mantener la energía.',s:'Una verdura nueva por semana, sin presionar, amplía sus sabores.'};h=`<div class="scr"><h2>Consejos</h2><div class="tip"><span style="font-size:44px">💡</span><div><b>Consejo del día</b>${TIPS[S.tip]}</div></div><div class="row"><button class="card" onclick="S.info='${tx.a}';r()"><span class="em">💧</span>Agua durante el día</button><button class="card" onclick="S.info='${tx.s}';r()"><span class="em">🌟</span>Prueba nuevos sabores</button></div>${S.info?`<div class="bubble">${S.info}</div>`:''}<button class="bw" onclick="S.tip=(S.tip+1)%3;r()">Otro consejo ↻</button><div style="margin-top:auto">${mas(k,90)}</div></div>`;n='tips'}
+else if(s=='garden'){const c=S.stars,pl=[0,1,2,3,4,5].map(i=>i<c?(c-i>=4?'🌻':c-i>=2?'🌿':'🌱'):'');const b=[[c>=1,'🥇','Primera comida'],[S.foods.length>=3,'🌈','3 platos distintos'],[c>=5,'🔥','5 comidas']];
+h=`<div class="scr"><h2>Mi huerta</h2><div class="garden"><div class="sky"><span style="font-size:34px">☁️</span>${mas(k,96)}<span style="font-size:44px;align-self:flex-start">⭐</span></div><div class="fence"></div><div class="plots">${pl.map(p=>`<div class="plot">${p}</div>`).join('')}</div></div><div class="bubble">¡Cada comida registrada hace crecer tu huerta!</div><div class="row" style="flex:none">${b.map(([o,i,t])=>`<div class="badge ${o?'':'lock'}" style="flex-direction:column;text-align:center;font-size:14px;gap:2px;padding:8px 4px"><span style="font-size:24px">${o?i:'🔒'}</span>${t}</div>`).join('')}</div><button class="bt" onclick="S.tmp=S.pet;go('pick')">Cambiar compañero</button></div>`;n='garden'}
+$('app').innerHTML=h+(n?nav(n):'');}
+r();
+</script></body></html>
